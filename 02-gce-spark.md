@@ -35,6 +35,7 @@ YOUR_CIDR=98.222.97.10/32
 
 #General variables
 LOCATION=us-central1
+ZONE=us-central1-a
 
 UMSA="$BASE_PREFIX-sa"
 UMSA_FQN=$UMSA@$PROJECT_ID.iam.gserviceaccount.com
@@ -42,6 +43,7 @@ UMSA_FQN=$UMSA@$PROJECT_ID.iam.gserviceaccount.com
 
 SPARK_GCE_NM=$BASE_PREFIX-gce
 SPARK_GCE_BUCKET=gs://$SPARK_GCE_NM-$PROJECT_NBR
+SPARK_GCE_SCRATCH_BUCKET=gs://$SPARK_GCE_NM-$PROJECT_NBR-SCRATCH
 
 PERSISTENT_HISTORY_SERVER_NM=$BASE_PREFIX-sphs
 PERSISTENT_HISTORY_SERVER_BUCKET=gs://$PERSISTENT_HISTORY_SERVER_NM-$PROJECT_NBR
@@ -58,11 +60,11 @@ SPARK_CATCH_ALL_SUBNET_NM=$BASE_PREFIX-misc-snet
   
 ## 3. Create a Dataproc GCE cluster
 ```
-gcloud dataproc clusters create test-cluster \
-   --region $REGION \
-   --subnet dataproc-vpc \
+gcloud dataproc clusters create $SPARK_GCE_NM \
+   --region $LOCATION \
+   --subnet $VPC_NM \
    --zone $ZONE \
-   --bucket dp-$PROJECT_ID \
+   --bucket $SPARK_GCE_BUCKET \
    --temp-bucket dp-temp-$PROJECT_ID \
    --master-machine-type n1-standard-4 \
    --master-boot-disk-size 500 --num-workers 2 \
@@ -72,7 +74,7 @@ gcloud dataproc clusters create test-cluster \
    --tags dataproc \
    --project $PROJECT_ID \
    --dataproc-metastore projects/$PROJECT_ID/locations/$LOCATION/services/hive-metastore \
-   --service-account=dataproc-sa@$PROJECT_ID.iam.gserviceaccount.com \
+   --service-account=$UMSA_FQN
 ```
 
 <hr>
