@@ -359,7 +359,7 @@ These buckets are for clusters to store intermediate data and other operational 
 Run the command below to provision-
 ```
 gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $SPARK_GCE_BUCKET_FQN
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $SPARK_GCE_SCRATCH_BUCKET_FQN
+gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $SPARK_GCE_TEMP_BUCKET_FQN
 gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $PERSISTENT_HISTORY_SERVER_BUCKET_FQN
 
 ```
