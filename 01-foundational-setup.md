@@ -219,7 +219,11 @@ gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$UMSA
 gcloud projects add-iam-policy-binding $PROJECT_ID --member serviceAccount:$UMSA_FQN \
 --role "roles/metastore.serviceAgent" 
 
-gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$UMSA_FQN --role="roles/storage.objectCreator"
+gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$UMSA_FQN \
+--role="roles/storage.objectCreator"
+
+gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$UMSA_FQN \
+--role="roles/dataproc.admin"
 
 ```
 
@@ -331,7 +335,6 @@ gcloud compute --project=$PROJECT_ID firewall-rules create allow-intra-$SPARK_CA
 --action=ALLOW \
 --rules=all \
 --source-ranges=$SPARK_CATCH_ALL_SUBNET_CIDR
- 
 ```
 
 <br><br>
