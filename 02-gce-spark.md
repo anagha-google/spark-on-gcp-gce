@@ -80,7 +80,9 @@ gcloud dataproc clusters create $SPARK_GCE_NM \
    --worker-machine-type n1-standard-4 \
    --worker-boot-disk-size 500 \
    --image-version 2.0-debian10 \
-   --tags $SPARK_GCE_NM 
+   --tags $SPARK_GCE_NM \
+   --optional-components JUPYTER 
+
 
 ```
 
