@@ -8,7 +8,7 @@ This module covers fundamentals of running Spark on Dataproc-GCE through a pract
 | -- | :--- |
 | 1 | [Cloud Dataproc landing page](https://cloud.google.com/dataproc/docs) |
 | 2 | [Dataproc Metastore Service](https://cloud.google.com/dataproc-metastore/docs) |
-| 3 | [Dataproc Persistent Spark History Server]() |
+| 3 | [Dataproc Persistent Spark History Server](https://cloud.google.com/dataproc/docs/concepts/jobs/history-server) |
 | 4 | [Apache Spark](https://spark.apache.org/docs/latest/) |
 
 ## 1. Pre-requisites
@@ -43,7 +43,7 @@ UMSA_FQN=$UMSA@$PROJECT_ID.iam.gserviceaccount.com
 
 SPARK_GCE_NM=$BASE_PREFIX-gce
 SPARK_GCE_BUCKET=gs://$SPARK_GCE_NM-$PROJECT_NBR
-SPARK_GCE_SCRATCH_BUCKET=gs://$SPARK_GCE_NM-$PROJECT_NBR-SCRATCH
+SPARK_GCE_SCRATCH_BUCKET=gs://$SPARK_GCE_NM-$PROJECT_NBR-scratch
 
 PERSISTENT_HISTORY_SERVER_NM=$BASE_PREFIX-sphs
 PERSISTENT_HISTORY_SERVER_BUCKET=gs://$PERSISTENT_HISTORY_SERVER_NM-$PROJECT_NBR
@@ -65,15 +65,15 @@ gcloud dataproc clusters create $SPARK_GCE_NM \
    --subnet $VPC_NM \
    --zone $ZONE \
    --bucket $SPARK_GCE_BUCKET \
-   --temp-bucket dp-temp-$PROJECT_ID \
+   --temp-bucket $SPARK_GCE_SCRATCH_BUCKET \
    --master-machine-type n1-standard-4 \
-   --master-boot-disk-size 500 --num-workers 2 \
+   --master-boot-disk-size 500 --num-workers 3 \
    --worker-machine-type n1-standard-4 \
    --worker-boot-disk-size 500 \
    --image-version 2.0-debian10 \
-   --tags dataproc \
+   --tags $SPARK_GCE_NM \
    --project $PROJECT_ID \
-   --dataproc-metastore projects/$PROJECT_ID/locations/$LOCATION/services/hive-metastore \
+   --dataproc-metastore projects/$PROJECT_ID/locations/$LOCATION/services/$DATAPROC_METASTORE_SERVICE_NM \
    --service-account=$UMSA_FQN
 ```
 
