@@ -211,7 +211,7 @@ gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$UMSA
 gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$UMSA_FQN \
 --role="roles/metastore.editor"
 
-gcloud projects add-iam-policy-binding $PROJECT_ID --member serviceAccount:$UMSA_FQN
+gcloud projects add-iam-policy-binding $PROJECT_ID --member serviceAccount:$UMSA_FQN \
 --role "roles/metastore.serviceAgent" 
 
 ```
