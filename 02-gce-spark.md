@@ -84,4 +84,10 @@ gcloud dataproc clusters create $SPARK_GCE_NM \
 
 ```
 
+## 4. SSH to cluster
+
+```
+gcloud compute ssh --zone "$ZONE" "$SPARK_GCE_NM-m"  --project $PROJECT_ID
+```
+
 <hr>
