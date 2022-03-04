@@ -23,6 +23,7 @@ YOUR_CIDR=98.222.97.10/32
 
 #General variables
 LOCATION=us-central1
+ZONE=us-central1-a
 
 UMSA="$BASE_PREFIX-sa"
 UMSA_FQN=$UMSA@$PROJECT_ID.iam.gserviceaccount.com
