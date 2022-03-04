@@ -211,28 +211,13 @@ gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$UMSA
 gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$UMSA_FQN \
 --role="roles/metastore.editor"
 
-```
-
-### 3.c. Grant permissions to the Compute Engine Default Google Managed Service Account
-
-Needed for serverless Spark from BigQuery, as it does not yet support User Managed Service Accounts.<br>
-Paste these and run in cloud shell-
+gcloud projects add-iam-policy-binding $PROJECT_ID --member serviceAccount:$UMSA_FQN
+--role "roles/metastore.serviceAgent" 
 
 ```
-COMPUTE_ENGINE_DEFAULT_GMSA=$PROJECT_NBR-compute@developer.gserviceaccount.com
-
-gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$COMPUTE_ENGINE_DEFAULT_GMSA \
---role="roles/bigquery.dataEditor"
-
-gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$COMPUTE_ENGINE_DEFAULT_GMSA \
---role="roles/bigquery.admin"
-
-gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$COMPUTE_ENGINE_DEFAULT_GMSA \
---role="roles/dataproc.worker"
-```
 
 
-### 3.d. Grant permissions for the lab attendee (yourself)
+### 3.c. Grant permissions for the lab attendee (yourself)
 Paste these and run in cloud shell-
 ```
 gcloud iam service-accounts add-iam-policy-binding \
