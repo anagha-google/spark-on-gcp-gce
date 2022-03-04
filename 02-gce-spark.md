@@ -72,7 +72,7 @@ gcloud dataproc clusters create $SPARK_GCE_NM \
    --zone $ZONE \
    --enable-component-gateway \
    --bucket $SPARK_GCE_BUCKET \
-   --temp-bucket $SPARK_GCE_SCRATCH_BUCKET \
+   --temp-bucket $SPARK_GCE_TEMP_BUCKET \
    --dataproc-metastore projects/$PROJECT_ID/locations/$LOCATION/services/$DATAPROC_METASTORE_SERVICE_NM \
    --master-machine-type n1-standard-4 \
    --master-boot-disk-size 500 \
