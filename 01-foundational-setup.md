@@ -9,7 +9,7 @@ Below, we will define variables used in the module.<br>
 Modify as applicable for your environment and run the same in the cloud shell on the [cloud console](https://console.cloud.google.com)-
 
 ```
-BASE_PREFIX="varja"  
+BASE_PREFIX="vajra"  
 
 #Replace with your details
 ORG_ID=akhanolkar.altostrat.com                              
@@ -39,7 +39,7 @@ VPC_PROJ_ID=$PROJECT_ID
 VPC_PROJ_ID=$PROJECT_NBR  
 
 VPC_NM=$BASE_PREFIX-vpc
-SPARK_GCE_SUBNET_NM=$SPARK_SERVERLESS_NM-snet
+SPARK_GCE_SUBNET_NM=$SPARK_GCE_NM-snet
 SPARK_CATCH_ALL_SUBNET_NM=$BASE_PREFIX-misc-snet
 
 ```
@@ -302,6 +302,16 @@ gcloud compute --project=$PROJECT_ID firewall-rules create allow-intra-$SPARK_GC
 --action=ALLOW \
 --rules=all \
 --source-ranges=$SPARK_GCE_SUBNET_CIDR
+
+gcloud compute firewall-rules create allow-ssh-$SPARK_GCE_SUBNET_NM \
+--project=$PROJECT_ID \
+--network=$VPC_NM \
+--direction=INGRESS \
+--priority=65534 \
+--source-ranges=0.0.0.0/0 \
+--action=ALLOW \
+--rules=tcp:22
+
 ```
 
 <br><br>
