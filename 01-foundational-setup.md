@@ -28,13 +28,15 @@ ZONE=us-central1-a
 UMSA="$BASE_PREFIX-sa"
 UMSA_FQN=$UMSA@$PROJECT_ID.iam.gserviceaccount.com
 
-
 SPARK_GCE_NM=$BASE_PREFIX-gce
-SPARK_GCE_BUCKET=gs://$SPARK_GCE_NM-$PROJECT_NBR
-SPARK_GCE_SCRATCH_BUCKET=gs://$SPARK_GCE_NM-$PROJECT_NBR-scratch
+
+SPARK_GCE_BUCKET_FQN=gs://$SPARK_GCE_NM-$PROJECT_NBR
+SPARK_GCE_SCRATCH_BUCKET_FQN=gs://$SPARK_GCE_NM-$PROJECT_NBR-scratch
+SPARK_GCE_BUCKET=$SPARK_GCE_NM-$PROJECT_NBR
+SPARK_GCE_SCRATCH_BUCKET=$SPARK_GCE_NM-$PROJECT_NBR-scratch
 
 PERSISTENT_HISTORY_SERVER_NM=$BASE_PREFIX-sphs
-PERSISTENT_HISTORY_SERVER_BUCKET=gs://$PERSISTENT_HISTORY_SERVER_NM-$PROJECT_NBR
+PERSISTENT_HISTORY_SERVER_BUCKET_FQN=gs://$PERSISTENT_HISTORY_SERVER_NM-$PROJECT_NBR
 DATAPROC_METASTORE_SERVICE_NM=$BASE_PREFIX-dpms
 
 VPC_PROJ_ID=$PROJECT_ID        
@@ -356,9 +358,9 @@ These buckets are for clusters to store intermediate data and other operational 
 Run the command below to provision-
 ```
 
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $SPARK_GCE_BUCKET
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $SPARK_GCE_SCRATCH_BUCKET
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $PERSISTENT_HISTORY_SERVER_BUCKET
+gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $SPARK_GCE_BUCKET_FQN
+gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $SPARK_GCE_SCRATCH_BUCKET_FQN
+gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $PERSISTENT_HISTORY_SERVER_BUCKET_FQN
 
 ```
 
@@ -378,7 +380,7 @@ gcloud dataproc clusters create $PERSISTENT_HISTORY_SERVER_NM \
     --region=$LOCATION \
     --image-version=1.4-debian10 \
     --enable-component-gateway \
-    --properties="dataproc:job.history.to-gcs.enabled=true,spark:spark.history.fs.logDirectory=$PERSISTENT_HISTORY_SERVER_BUCKET/*/spark-job-history,mapred:mapreduce.jobhistory.read-only.dir-pattern=$PERSISTENT_HISTORY_SERVER_BUCKET/*/mapreduce-job-history/done" \
+    --properties="dataproc:job.history.to-gcs.enabled=true,spark:spark.history.fs.logDirectory=$PERSISTENT_HISTORY_SERVER_BUCKET_FQN/*/spark-job-history,mapred:mapreduce.jobhistory.read-only.dir-pattern=$PERSISTENT_HISTORY_SERVER_BUCKET/*/mapreduce-job-history/done" \
     --service-account=$UMSA_FQN \
 --single-node \
 --subnet=projects/$PROJECT_ID/regions/$LOCATION/subnetworks/$SPARK_CATCH_ALL_SUBNET_NM
