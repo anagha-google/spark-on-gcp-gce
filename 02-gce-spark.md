@@ -62,20 +62,22 @@ SPARK_CATCH_ALL_SUBNET_NM=$BASE_PREFIX-misc-snet
 ## 3. Create a Dataproc GCE cluster
 ```
 gcloud dataproc clusters create $SPARK_GCE_NM \
+   --service-account=$UMSA_FQN \
+   --project $PROJECT_ID \
+   --subnet $SPARK_GCE_SUBNET_NM \
    --region $LOCATION \
-   --subnet $VPC_NM \
    --zone $ZONE \
-   --bucket $SPARK_GCE_BUCKET \
-   --temp-bucket $SPARK_GCE_SCRATCH_BUCKET \
+   --enable-component-gateway \
+   --bucket $SPARK_GCE_BUCKET_FQN \
+   --temp-bucket $SPARK_GCE_SCRATCH_BUCKET_FQN \
+   --dataproc-metastore projects/$PROJECT_ID/locations/$LOCATION/services/$DATAPROC_METASTORE_SERVICE_NM \
    --master-machine-type n1-standard-4 \
    --master-boot-disk-size 500 --num-workers 3 \
    --worker-machine-type n1-standard-4 \
    --worker-boot-disk-size 500 \
    --image-version 2.0-debian10 \
-   --tags $SPARK_GCE_NM \
-   --project $PROJECT_ID \
-   --dataproc-metastore projects/$PROJECT_ID/locations/$LOCATION/services/$DATAPROC_METASTORE_SERVICE_NM \
-   --service-account=$UMSA_FQN
+   --tags $SPARK_GCE_NM 
+
 ```
 
 <hr>
