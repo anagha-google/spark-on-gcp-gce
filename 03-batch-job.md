@@ -45,9 +45,11 @@ gsutil cp "/Users/akhanolkar/IdeaProjects/ReadGCSFile/target/scala-2.12/readgcsf
 Submit job-
 ```
 gcloud dataproc jobs submit spark \
-    --cluster=${CLUSTER} \
+    --cluster=${SPARK_GCE_NM} \
     --class=${CLASS_NAME} \
     --jars=${JAR_BUCKET_FQN}/${JAR_NAME} \
-    --region=${REGION} \
-    -- ${INPUT_BUCKET_FQN} ${OUTPUT_BUCKET_FQN}
+    --region=${LOCATION} \
+    --impersonate-service-account $UMSA_FQN \
+    -- ${INPUT_BUCKET_FQN} ${OUTPUT_BUCKET_FQN} 
+   
 ```
