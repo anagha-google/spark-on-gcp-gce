@@ -72,7 +72,8 @@ gcloud dataproc clusters create $SPARK_GCE_NM \
    --temp-bucket $SPARK_GCE_SCRATCH_BUCKET_FQN \
    --dataproc-metastore projects/$PROJECT_ID/locations/$LOCATION/services/$DATAPROC_METASTORE_SERVICE_NM \
    --master-machine-type n1-standard-4 \
-   --master-boot-disk-size 500 --num-workers 3 \
+   --master-boot-disk-size 500 \
+   --num-workers 3 \
    --worker-machine-type n1-standard-4 \
    --worker-boot-disk-size 500 \
    --image-version 2.0-debian10 \
