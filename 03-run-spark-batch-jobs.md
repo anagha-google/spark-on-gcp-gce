@@ -29,22 +29,17 @@ SPARK_GCE_NM=$BASE_PREFIX-gce
 DATAPROC_METASTORE_SERVICE_NM=$BASE_PREFIX-dpms
 SPARK_GCE_SUBNET_NM=$SPARK_GCE_NM-snet
 
+DATA_BUCKET_FQN=gs://$BASE_PREFIX-gce-data
+JAR_BUCKET_FQN=gs://$BASE_PREFIX-gce-jar
 
-INPUT_BUCKET_FQN=gs://$BASE_PREFIX-gce-data/wordcount/input/crimes/Wards.csv
-OUTPUT_BUCKET_FQN=gs://$BASE_PREFIX-gce-data/output/scala-wordcount-output
-JAR_BUCKET_FQN=gs://$BASE_PREFIX-gce-jar/wordcount
 JAR_NAME=readgcsfile_2.12-0.1.jar
 CLASS_NAME=ReadGCSFileAndWordCount
 ```
 
-One time activity-
-```
-gsutil rm -R $OUTPUT_BUCKET_FQN
-gsutil rm -R $JAR_BUCKET_FQN
-gsutil cp "/Users/akhanolkar/IdeaProjects/ReadGCSFile/target/scala-2.12/readgcsfile_2.12-0.1.jar" ${JAR_BUCKET_FQN}/
-```
 
-## 2. SparkPi job
+## 2. Run a "SparkPi" job
+This job merely calculates the value of Pi and emits the result to the screen and is great for a basic environment setup set.
+
 ```
 gcloud dataproc jobs submit spark \
 --cluster=${SPARK_GCE_NM} \
@@ -53,19 +48,71 @@ gcloud dataproc jobs submit spark \
 --class org.apache.spark.examples.SparkPi -- 10000
 ```
 
-## 3. Wordcount job
+Navigate to the Dataproc "batch job" UI on the Cloud Console and explore the batch job UI and logs.
+
+
+## 3. Run a "Wordcount" job
+
+### 3.1. Create storage buckets (one time activity)
+
+#### 3.1.a. Create a bucket for the source file
+```
+gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $DATA_BUCKET_FQN
+```
+
+#### 3.1.b. Create a bucket for the "Wordcount" jar (one time activity)
+```
+gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $JAR_BUCKET_FQN
+```
+
+## 3.2. Copy the source data and jar to the buckets created
+
+### 3.2.a. Clone this git repo via gcloud in Cloud Shell
 
 ```
-gsutil rm -R $OUTPUT_BUCKET_FQN
+cd ~
+git clone https://github.com/anagha-google/spark-on-gcp-gce.git
+```
 
+### 3.2.b. Copy the source file to the source bucket
+
+```
+cd ~/spark-on-gcp-gce/
+gsutil cp data/Wards.csv $DATA_BUCKET_FQN/input/wordcount/crimes/Wards.csv
+```
+
+### 3.2.c. Copy the jar file to the jar bucket
+
+```
+cd ~/spark-on-gcp-gce/
+gsutil cp jars/readgcsfile_2.12-0.1.jar $JAR_BUCKET_FQN/wordcount/
+```
+
+## 3.3. Submit the "Wordcount" job as the service account
+
+```
+#Clean up output from potential prior runs
+gsutil rm -R $DATA_BUCKET_FQN/output/wordcount 
+
+#Submit job
 gcloud dataproc jobs submit spark \
     --cluster=${SPARK_GCE_NM} \
     --class=${CLASS_NAME} \
     --jars=${JAR_BUCKET_FQN}/${JAR_NAME} \
     --region=${LOCATION} \
     --impersonate-service-account $UMSA_FQN \
-    -- ${INPUT_BUCKET_FQN} ${OUTPUT_BUCKET_FQN} 
+    -- ${DATA_BUCKET_FQN}/wordcount/input/wordcount/crimes/Wards.csv ${DATA_BUCKET_FQN}/output/wordcount 
 ```
+
+1. Navigate to the Dataproc UI, to the "job" GUI and view the execution logs<br>
+
+
+2. Navigate to the GCS bucket for output and view the files created there. <br>
+You can also review the files via gcloud command-
+```
+gsutil ls ${DATA_BUCKET_FQN}/output/wordcount 
+```
+
 
 ## 4. Notebook 
 
