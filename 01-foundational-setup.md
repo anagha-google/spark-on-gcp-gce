@@ -9,17 +9,20 @@ Below, we will define variables used in the module.<br>
 Modify as applicable for your environment and run the same in the cloud shell on the [cloud console](https://console.cloud.google.com)-
 
 ```
-BASE_PREFIX="vajra"  
+#Any keyword that you can prefix to your resources for traceability and for uniqueness
+#for those services that require globally unique names. The Author has used "zeus"
+
+BASE_PREFIX="zeus"  
 
 #Replace with your details
-ORG_ID=akhanolkar.altostrat.com                              
-ORG_ID_NBR=236589261571
+ORG_ID=<YOUR_LDAP>.altostrat.com                              
+ORG_ID_NBR=<YOUR_ORG_ID_NBR>
 ADMINISTRATOR_UPN_FQN=admin@$ORG_ID 
-PROJECT_ID=dataproc-playground-335723
-PROJECT_NBR=481704770619
+PROJECT_ID=<YOUR_PROJECT_ID>
+PROJECT_NBR=<YOUR_PROJECT_ID_NBR>
 
 #Your public IP address, to add to the firewall
-YOUR_CIDR=98.222.97.10/32
+YOUR_CIDR=<YOUR_IP_ADDRESS>/32
 
 #General variables
 LOCATION=us-central1
