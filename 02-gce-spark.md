@@ -84,8 +84,15 @@ gcloud dataproc clusters create $SPARK_GCE_NM \
    --image-version 2.0-debian10 \
    --tags $SPARK_GCE_NM \
    --optional-components JUPYTER 
+```
 
-
+You should output as follows-
+```
+Waiting on operation [projects/dataproc-playground-335723/regions/us-central1/operations/71bd4732-4f9e-3d3e-8f10-bc4adfbde6ba].
+Waiting for cluster creation operation...
+WARNING: For PD-Standard without local SSDs, we strongly recommend provisioning 1TB or larger to ensure consistently high I/O performance. See https://cloud.google.com/compute/docs/disks/performance for information on disk I/O performance.
+Waiting for cluster creation operation...done.     
+Created [https://dataproc.googleapis.com/v1/projects/dataproc-playground-335723/regions/us-central1/clusters/vajra-gce] Cluster placed in zone [us-central1-a].
 ```
 
 ## 4. SSH to cluster
