@@ -1,15 +1,7 @@
 # About
 
-This module covers fundamentals of running Spark on Dataproc-GCE through a practical and basic set of examples to get you quick-started. 
+This module covers creation of a Cloud Dataproc cluster, with a pre-created Dataproc Metastore Service, and with the optional component of Jupyter. 
 
-## Documentation resources
-
-| Topic | Resource | 
-| -- | :--- |
-| 1 | [Cloud Dataproc landing page](https://cloud.google.com/dataproc/docs) |
-| 2 | [Dataproc Metastore Service](https://cloud.google.com/dataproc-metastore/docs) |
-| 3 | [Dataproc Persistent Spark History Server](https://cloud.google.com/dataproc/docs/concepts/jobs/history-server) |
-| 4 | [Apache Spark](https://spark.apache.org/docs/latest/) |
 
 ## Lab Modules
 
@@ -20,6 +12,16 @@ This module covers fundamentals of running Spark on Dataproc-GCE through a pract
 | 3 | [Submit Spark batch jobs](03-run-spark-batch-jobs.md) |
 | 4 | [Work with Jupyter notebooks](04-run-spark-notebooks.md) |
 | 10 | [Clean up](10-clean-up.md) |
+
+## Documentation resources
+
+| Topic | Resource | 
+| -- | :--- |
+| 1 | [Cloud Dataproc landing page](https://cloud.google.com/dataproc/docs) |
+| 2 | [Dataproc Metastore Service](https://cloud.google.com/dataproc-metastore/docs) |
+| 3 | [Dataproc Persistent Spark History Server](https://cloud.google.com/dataproc/docs/concepts/jobs/history-server) |
+| 4 | [Apache Spark](https://spark.apache.org/docs/latest/) |
+
 
 ## 1. Pre-requisites
 
