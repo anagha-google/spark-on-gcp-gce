@@ -105,6 +105,57 @@ Waiting for cluster creation operation...done.
 Created [https://dataproc.googleapis.com/v1/projects/dataproc-playground-335723/regions/us-central1/clusters/vajra-gce] Cluster placed in zone [us-central1-a].
 ```
 
+Here is a pictorial overview of the cluster-
+
+![1](images/02-01.png)   
+  
+<br><br>
+
+![2](images/02-02.png)   
+  
+<br><br>
+
+![3](images/02-03.png)   
+  
+<br><br>
+
+![4](images/02-04.png)   
+  
+<br><br>
+
+![5-1](images/02-05.png)   
+  
+<br><br>
+
+![5-2](images/02-05-2.png)   
+  
+<br><br>
+
+![5-3](images/02-05-3.png)   
+  
+<br><br>
+
+![6](images/02-06.png)   
+  
+<br><br>
+
+![7](images/02-07.png)   
+  
+<br><br>
+
+![8](images/02-08.png)   
+  
+<br><br>
+
+![9](images/02-09.png)   
+  
+<br><br>
+
+![10](images/02-10.png)   
+  
+<br><br>
+
+
 ## 4. SSH to cluster
 
 ```
