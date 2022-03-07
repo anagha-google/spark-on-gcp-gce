@@ -21,17 +21,18 @@ Completion of the prior module
 ## 2. Variables
 
 ```
-BASE_PREFIX="vajra"  
+BASE_PREFIX="zeus"  
 
 #Replace with your details
-ORG_ID=akhanolkar.altostrat.com                              
-ORG_ID_NBR=236589261571
+ORG_ID=<YOUR_LDAP>.altostrat.com                              
+ORG_ID_NBR=<YOUR_ORG_ID_NBR>
 ADMINISTRATOR_UPN_FQN=admin@$ORG_ID 
-PROJECT_ID=dataproc-playground-335723
-PROJECT_NBR=481704770619
+PROJECT_ID=<YOUR_PROJECT_ID>
+PROJECT_NBR=<YOUR_PROJECT_ID_NBR>
 
 #Your public IP address, to add to the firewall
-YOUR_CIDR=98.222.97.10/32
+YOUR_CIDR=<YOUR_IP_ADDRESS>/32
+
 
 #General variables
 LOCATION=us-central1
@@ -91,5 +92,7 @@ gcloud dataproc clusters create $SPARK_GCE_NM \
 ```
 gcloud compute ssh --zone "$ZONE" "$SPARK_GCE_NM-m"  --project $PROJECT_ID
 ```
+
+The above command allows you to SSH to the master node. To SSH to the other nodes, go via the Google Compute Engine UI route to get the gcloud commands.
 
 <hr>
