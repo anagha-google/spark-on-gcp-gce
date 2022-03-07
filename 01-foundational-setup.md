@@ -427,7 +427,7 @@ gcloud metastore services create $DATAPROC_METASTORE_SERVICE_NM \
 <hr>
 This concludes the module. <br>
 
-[Next Module](02-gce-spark.md) 
+[Next Module](https://github.com/anagha-google/spark-on-gcp-gce/blob/main/02-gce-create-spark-cluster.md) 
 <br>
 [Repo Landing Page](https://github.com/anagha-google/spark-on-gcp-gce)
 
