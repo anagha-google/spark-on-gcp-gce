@@ -63,6 +63,11 @@ gcloud dataproc jobs submit spark \
 --class org.apache.spark.examples.SparkPi -- 10000
 ```
 
+In the output you should see-
+```
+Pi is roughly 3.141681127141681
+```
+
 Navigate to the Dataproc "batch job" UI on the Cloud Console and explore the batch job UI and logs.
 
 
