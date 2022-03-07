@@ -296,8 +296,14 @@ gcloud projects add-iam-policy-binding $PROJECT_ID --member=user:$ADMINISTRATOR_
   
 <br><br>
 
-<hr>
+### 3.d. Grant permissions to the Dataproc Service Agent to interact with the Dataproc Metastore
+Paste these and run in cloud shell-
+```
+gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$UMSA_FQN \
+--role="roles/metastore.editor"
+```
 
+<hr>
 
 ## 4.0. Create VPC, Subnets and Firewall Rules
 
