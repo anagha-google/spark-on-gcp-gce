@@ -457,6 +457,10 @@ gcloud dataproc clusters create $PERSISTENT_HISTORY_SERVER_NM \
 ```
 <br><br>
 
+![pshs-0](images/01-pshs-15.png)   
+  
+<br><br>
+
 ![pshs-1](images/01-pshs-16.png)   
   
 <br><br>
@@ -490,6 +494,26 @@ gcloud metastore services create $DATAPROC_METASTORE_SERVICE_NM \
     --hive-metastore-version=3.1.2 \
     --impersonate-service-account=$UMSA_FQN 
 ```
+<br><br>
+
+![dpms-1](images/01-dpms-09.png)   
+  
+<br><br>
+
+![dpms-2](images/01-dpms-10.png)   
+  
+<br><br>
+
+![dpms-3](images/01-dpms-11.png)   
+  
+<br><br>
+
+![dpms-4](images/01-dpms-12.png)   
+  
+<br><br>
+
+![dpms-5](images/01-dpms-14.png)   
+  
 <br><br>
 
 <hr>
