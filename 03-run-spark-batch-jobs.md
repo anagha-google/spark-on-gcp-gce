@@ -6,7 +6,7 @@ This module shows how to submit jobs to a Cloud Dataproc cluster
 
 ```
 #Replace with base prefix you chose in module 1
-BASE_PREFIX="zeus"  
+BASE_PREFIX="vajra"  
 
 #Replace with your details
 ORG_ID=<YOUR_LDAP>.altostrat.com                              
@@ -121,7 +121,7 @@ gcloud dataproc jobs submit spark \
     --jars=$JAR_BUCKET_FQN/wordcount/readgcsfile_2.12-0.1.jar \
     --region=${LOCATION} \
     --impersonate-service-account $UMSA_FQN \
-    -- ${DATA_BUCKET_FQN}/wordcount/input/wordcount/crimes/Wards.csv ${DATA_BUCKET_FQN}/output/wordcount 
+    -- ${DATA_BUCKET_FQN}/input/wordcount/crimes/Wards.csv ${DATA_BUCKET_FQN}/output/wordcount 
 ```
 
 1. Navigate to the Dataproc UI, to the "job" GUI and view the execution logs<br>
