@@ -392,6 +392,14 @@ gcloud compute --project=$PROJECT_ID firewall-rules create allow-intra-$SPARK_CA
 
 <br><br>
 
+![misc-1](images/01-19-misc-snet.png)   
+  
+<br><br>
+
+![misc-2](images/01-20-misc-snet.png)   
+  
+<br><br>
+
 <hr>
 
 ### 4.d. Grant access to your IP address
