@@ -28,7 +28,7 @@ Modify as applicable for your environment and run the same in the cloud shell on
 
 ```
 #Any keyword that you can prefix to your resources for traceability and for uniqueness
-#for those services that require globally unique names. The Author has used "zeus"
+#for those services that require globally unique names. The Author has used "vajra" for base prefix
 
 BASE_PREFIX="vajra"  
 
