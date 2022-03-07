@@ -22,7 +22,7 @@ Completion of the prior module
 
 ```
 #Replace with base_prefix of your choice, from module 1
-BASE_PREFIX="zeus"  
+BASE_PREFIX="vajra"  
 
 #Replace with your details
 ORG_ID=<YOUR_LDAP>.altostrat.com                              
