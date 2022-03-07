@@ -38,21 +38,6 @@ PROJECT_NBR=<YOUR_PROJECT_ID_NBR>
 #Your public IP address, to add to the firewall
 YOUR_CIDR=<YOUR_IP_ADDRESS>/32
 
-
-#................................
-
-BASE_PREFIX="vajra"  
-
-#Replace with your details
-ORG_ID=akhanolkar.altostrat.com                              
-ORG_ID_NBR=236589261571
-ADMINISTRATOR_UPN_FQN=admin@$ORG_ID 
-PROJECT_ID=dataproc-playground-335723
-PROJECT_NBR=481704770619
-
-#Your public IP address, to add to the firewall
-YOUR_CIDR=98.222.97.10/32
-
 #General variables
 LOCATION=us-central1
 ZONE=us-central1-a
