@@ -24,4 +24,33 @@ In this module, learn to run Apache Spark jobs in Jupyter notebooks on Cloud Dat
 | 10 | [Clean up](10-clean-up.md) |
 
 ## 1.0. Variables
+Paste the below in Cloud Shell, after modifying for your environment-
+```
+#Replace with base_prefix of your choice, from module 1
+BASE_PREFIX="vajra"  
 
+#Replace with your details
+ORG_ID=<YOUR_LDAP>.altostrat.com                              
+ORG_ID_NBR=<YOUR_ORG_ID_NBR>
+ADMINISTRATOR_UPN_FQN=admin@$ORG_ID 
+PROJECT_ID=<YOUR_PROJECT_ID>
+PROJECT_NBR=<YOUR_PROJECT_ID_NBR>
+
+#Your public IP address, to add to the firewall
+YOUR_CIDR=<YOUR_IP_ADDRESS>/32
+
+#General variables
+LOCATION=us-central1
+ZONE=us-central1-a
+
+UMSA="$BASE_PREFIX-sa"
+UMSA_FQN=$UMSA@$PROJECT_ID.iam.gserviceaccount.com
+
+SPARK_BQ_STAGE_BUCKET=$SPARK_GCE_NM-$PROJECT_ID-bqcs
+
+```
+
+
+## 2.0. Create a staging bucket for the Apache Spark BigQuery connector
+
+vajra-bigspark-481704770619-stage
