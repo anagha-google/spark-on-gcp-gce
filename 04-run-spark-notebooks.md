@@ -1,5 +1,7 @@
 
+# About
 
+In this module, learn to run Apache Spark jobs in Jupyter notebooks on Cloud Dataproc on GCE.
 
 
 ## Documentation resources
@@ -20,3 +22,6 @@
 | 3 | [Submit Spark batch jobs](03-run-spark-batch-jobs.md) |
 | 4 | [Work with Jupyter notebooks](04-run-spark-notebooks.md) |
 | 10 | [Clean up](10-clean-up.md) |
+
+## 1.0. Variables
+
