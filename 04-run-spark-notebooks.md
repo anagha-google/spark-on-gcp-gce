@@ -13,7 +13,7 @@
 
 ## Lab Modules
 
-| Topic | Resource | 
+| Module | Resource | 
 | -- | :--- |
 | 1 | [Foundational Setup](01-foundational-setup.md) |
 | 2 | [Create a Dataproc Spark Cluster](02-gce-create-spark-cluster.md) |
