@@ -155,6 +155,8 @@ Here is a pictorial overview of the cluster-
   
 <br><br>
 
+<hr>
+
 
 ## 4. SSH to cluster
 
