@@ -110,6 +110,6 @@ This concludes the module. <br>
 
 [Next Module](03-run-spark-batch-jobs.md) 
 <br>
-[Repo Landing Page](spark-on-gcp-gce)
+[Repo Landing Page](README.md)
 
 <hr>
