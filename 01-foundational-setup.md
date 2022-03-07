@@ -289,6 +289,11 @@ gcloud projects add-iam-policy-binding $PROJECT_ID --member=user:$ADMINISTRATOR_
 --role="roles/bigquery.admin"
 ```
 
+![iam-3](images/01-iam-aak.png)   
+  
+<br><br>
+
+<hr>
 
 
 ## 4.0. Create VPC, Subnets and Firewall Rules
@@ -345,6 +350,23 @@ gcloud compute firewall-rules create allow-ssh-$SPARK_GCE_SUBNET_NM \
 --rules=tcp:22
 
 ```
+
+![network-1](images/01-02-network.png)   
+  
+<br><br>
+
+![network-2](images/01-03-network.png)   
+  
+<br><br>
+
+![network-3](images/01-04-network.png)   
+  
+<br><br>
+
+![network-4](images/01-05-network.png)   
+  
+<br><br>
+
 
 <br><br>
 
