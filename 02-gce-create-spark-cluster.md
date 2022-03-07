@@ -103,4 +103,13 @@ gcloud compute ssh --zone "$ZONE" "$SPARK_GCE_NM-m"  --project $PROJECT_ID
 
 The above command allows you to SSH to the master node. To SSH to the other nodes, go via the Google Compute Engine UI route to get the gcloud commands.
 
+<br><br>
+
+<hr>
+This concludes the module. <br>
+
+[Next Module](03-run-spark-batch-jobs.md) 
+<br>
+[Repo Landing Page](spark-on-gcp-gce)
+
 <hr>
