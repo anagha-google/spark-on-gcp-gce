@@ -101,7 +101,7 @@ gcloud dataproc clusters create $SPARK_GCE_NM \
    --image-version 2.0-debian10 \
    --tags $SPARK_GCE_NM \
    --optional-components JUPYTER \
-   --initialization-actions gs://goog-dataproc-initialization-actions-${REGION}/connectors/connectors.sh \
+   --initialization-actions gs://goog-dataproc-initialization-actions-${LOCATION}/connectors/connectors.sh \
    --metadata spark-bigquery-connector-version=0.23.2
 ```
 
