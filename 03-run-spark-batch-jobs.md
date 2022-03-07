@@ -112,6 +112,9 @@ Navigate to the Dataproc "batch job" UI on the Cloud Console and explore the bat
 ```
 gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $DATA_BUCKET_FQN
 ```
+![bucket-1](images/03-05.png) 
+
+<br><br>
 
 #### 3.1.b. Create a bucket for the "Wordcount" jar (one time activity)
 ```
@@ -134,12 +137,20 @@ cd ~/spark-on-gcp-gce/
 gsutil cp data/Wards.csv $DATA_BUCKET_FQN/input/wordcount/crimes/Wards.csv
 ```
 
+![bucket-1](images/03-06.png) 
+
+<br><br>
+
 ### 3.2.c. Copy the jar file to the jar bucket
 
 ```
 cd ~/spark-on-gcp-gce/
 gsutil cp jars/readgcsfile_2.12-0.1.jar $JAR_BUCKET_FQN/wordcount/
 ```
+
+![bucket-2](images/03-07.png) 
+
+<br><br>
 
 ## 3.3. Submit the "Wordcount" job as the service account
 
@@ -158,6 +169,18 @@ gcloud dataproc jobs submit spark \
 ```
 
 1. Navigate to the Dataproc UI, to the "job" GUI and view the execution logs<br>
+
+![output-1](images/03-08.png) 
+
+<br><br>
+
+![output-2](images/03-09.png) 
+
+<br><br>
+
+![output-3](images/03-10.png) 
+
+<br><br>
 
 
 2. Navigate to the GCS bucket for output and view the files created there. <br>
