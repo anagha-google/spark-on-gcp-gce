@@ -118,7 +118,7 @@ gsutil rm -R $DATA_BUCKET_FQN/output/wordcount
 gcloud dataproc jobs submit spark \
     --cluster=${SPARK_GCE_NM} \
     --class=${CLASS_NAME} \
-    --jars=${JAR_BUCKET_FQN}/${JAR_NAME} \
+    --jars=$JAR_BUCKET_FQN/wordcount/readgcsfile_2.12-0.1.jar \
     --region=${LOCATION} \
     --impersonate-service-account $UMSA_FQN \
     -- ${DATA_BUCKET_FQN}/wordcount/input/wordcount/crimes/Wards.csv ${DATA_BUCKET_FQN}/output/wordcount 
