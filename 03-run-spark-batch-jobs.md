@@ -91,7 +91,13 @@ Navigate to the Dataproc "batch job" UI on the Cloud Console and explore the bat
 
 ![sparkPi-2](images/03-02.png) 
 
+<br><br>
+
 ![sparkPi-3](images/03-03.png) 
+
+<br><br>
+
+![sparkPi-4](images/03-04.png) 
 
 <br><br>
 
