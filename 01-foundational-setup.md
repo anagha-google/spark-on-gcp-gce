@@ -378,7 +378,7 @@ gcloud compute firewall-rules create allow-ingress-from-office \
 
 <hr>
 
-## 5.0. Create staging buckets for clusters
+## 5.0. Create staging buckets for the Spark cluster
 
 These buckets are for clusters to store intermediate data and other operational data.<br>
 
@@ -386,8 +386,6 @@ Run the command below to provision-
 ```
 gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $SPARK_GCE_BUCKET_FQN
 gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $SPARK_GCE_TEMP_BUCKET_FQN
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $PERSISTENT_HISTORY_SERVER_BUCKET_FQN
-
 ```
 
 <br><br>
@@ -401,6 +399,8 @@ Docs: https://cloud.google.com/dataproc/docs/concepts/jobs/history-server<br>
 
 Run the command below to provision-
 ```
+gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $PERSISTENT_HISTORY_SERVER_BUCKET_FQN
+
 gcloud dataproc clusters create $PERSISTENT_HISTORY_SERVER_NM \
     --single-node \
     --region=$LOCATION \
