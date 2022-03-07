@@ -21,7 +21,7 @@ Completion of the prior module
 ## 2. Variables
 
 ```
-#Replace with base_prefix of your choice
+#Replace with base_prefix of your choice, from module 1
 BASE_PREFIX="zeus"  
 
 #Replace with your details
