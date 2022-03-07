@@ -30,9 +30,9 @@ DATAPROC_METASTORE_SERVICE_NM=$BASE_PREFIX-dpms
 SPARK_GCE_SUBNET_NM=$SPARK_GCE_NM-snet
 
 
-INPUT_BUCKET_FQN=gs://vajra-gce-data/wordcount/input/crimes/Wards.csv
-OUTPUT_BUCKET_FQN=gs://vajra-gce-data/output/scala-wordcount-output
-JAR_BUCKET_FQN=gs://vajra-gce-jar/wordcount
+INPUT_BUCKET_FQN=gs://$BASE_PREFIX-gce-data/wordcount/input/crimes/Wards.csv
+OUTPUT_BUCKET_FQN=gs://$BASE_PREFIX-gce-data/output/scala-wordcount-output
+JAR_BUCKET_FQN=gs://$BASE_PREFIX-gce-jar/wordcount
 JAR_NAME=readgcsfile_2.12-0.1.jar
 CLASS_NAME=ReadGCSFileAndWordCount
 ```
