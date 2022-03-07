@@ -150,3 +150,14 @@ The result should look something like this-
 "41.84030987335775,",2
 -87.67775411246915,2
 ```
+
+<br><br>
+
+<hr>
+This concludes the module. <br>
+
+[Next Module](04-run-spark-notebooks.md) 
+<br>
+[Repo Landing Page](README.md)
+
+<hr>
