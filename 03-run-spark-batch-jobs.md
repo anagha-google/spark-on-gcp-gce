@@ -12,6 +12,10 @@ This module shows how to submit jobs to a Cloud Dataproc cluster.
 | 4 | [Dataproc Persistent Spark History Server](https://cloud.google.com/dataproc/docs/concepts/jobs/history-server) |
 | 5 | [Apache Spark](https://spark.apache.org/docs/latest/) |
 
+<br><br>
+
+<hr>
+
 ## Lab Modules
 
 | Module | Resource | 
@@ -21,6 +25,10 @@ This module shows how to submit jobs to a Cloud Dataproc cluster.
 | 3 | [Submit Spark batch jobs](03-run-spark-batch-jobs.md) |
 | 4 | [Work with Jupyter notebooks](04-run-spark-notebooks.md) |
 | 10 | [Clean up](10-clean-up.md) |
+
+<br><br>
+
+<hr>
 
 ## 1. Variables
 
@@ -55,7 +63,9 @@ JAR_BUCKET_FQN=gs://$BASE_PREFIX-gce-jar
 JAR_NAME=readgcsfile_2.12-0.1.jar
 CLASS_NAME=ReadGCSFileAndWordCount
 ```
+<br><br>
 
+<hr>
 
 ## 2. Run a "SparkPi" job
 This job merely calculates the value of Pi and emits the result to the screen and is great for a basic environment setup set.
@@ -74,6 +84,18 @@ Pi is roughly 3.141681127141681
 ```
 
 Navigate to the Dataproc "batch job" UI on the Cloud Console and explore the batch job UI and logs.
+
+![sparkPi-1](images/03-01.png) 
+
+<br><br>
+
+![sparkPi-2](images/03-02.png) 
+
+![sparkPi-3](images/03-03.png) 
+
+<br><br>
+
+<hr>
 
 
 ## 3. Run a "Wordcount" job
