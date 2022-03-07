@@ -1,4 +1,4 @@
-# Apache Spark on Cloud Dataproc powered by Google Compute Engine
+# Apache Spark on Cloud Dataproc powered by Compute Engine
 
 This hand-on lab covers working with Apache Spark on Cloud Dataproc powered by Google Compute Engine. It has modules that cover environment configuation n preparatation, creating Cloud Dataproc clusters, running Spark jobs via jobs, notebooks, and cleaning up the environment post lab. The purpose of the modules are to get users unfamiliar with Cloud Dataproc up and running quickly, to improve productivity and focus on data engineering and machine learning with Apache Spark versus environment and provisioning nuances.
 
