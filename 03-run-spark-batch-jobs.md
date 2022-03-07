@@ -12,7 +12,7 @@ This module shows how to submit jobs to a Cloud Dataproc cluster.
 | 4 | [Dataproc Persistent Spark History Server](https://cloud.google.com/dataproc/docs/concepts/jobs/history-server) |
 | 5 | [Apache Spark](https://spark.apache.org/docs/latest/) |
 
-<br><br>
+<br>
 
 <hr>
 
@@ -26,7 +26,7 @@ This module shows how to submit jobs to a Cloud Dataproc cluster.
 | 4 | [Work with Jupyter notebooks](04-run-spark-notebooks.md) |
 | 10 | [Clean up](10-clean-up.md) |
 
-<br><br>
+<br>
 
 <hr>
 
@@ -63,7 +63,7 @@ JAR_BUCKET_FQN=gs://$BASE_PREFIX-gce-jar
 JAR_NAME=readgcsfile_2.12-0.1.jar
 CLASS_NAME=ReadGCSFileAndWordCount
 ```
-<br><br>
+<br>
 
 <hr>
 
@@ -99,7 +99,7 @@ Navigate to the Dataproc "batch job" UI on the Cloud Console and explore the bat
 
 ![sparkPi-4](images/03-04.png) 
 
-<br><br>
+<br>
 
 <hr>
 
@@ -197,7 +197,7 @@ The result should look something like this-
 -87.67775411246915,2
 ```
 
-<br><br>
+<br>
 
 <hr>
 This concludes the module. <br>
