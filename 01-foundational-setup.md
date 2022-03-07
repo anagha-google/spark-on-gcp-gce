@@ -210,6 +210,16 @@ gcloud iam service-accounts create ${UMSA} \
     --description="User Managed Service Account for the $BASE_PREFIX Service Project" \
     --display-name=$UMSA 
 ```
+![iam-1](images/01-06-iam.png)   
+  
+<br><br>
+
+![iam-2](images/01-07-iam.png)   
+  
+<br><br>
+
+
+
 ### 3.b. Grant IAM permissions for the UMSA
 
 ```
@@ -248,6 +258,9 @@ gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$UMSA
 
 ```
 
+![iam-1](images/01-08-iam.png)   
+  
+<br><br>
 
 ### 3.c. Grant permissions for the lab attendee (yourself)
 Paste these and run in cloud shell-
@@ -294,6 +307,8 @@ gcloud compute networks create $VPC_NM \
 ```
 
 <br><br>
+
+
 
 <hr>
 
