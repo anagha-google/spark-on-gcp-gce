@@ -12,7 +12,7 @@ BASE_PREFIX="vajra"
 ORG_ID=<YOUR_LDAP>.altostrat.com                              
 ORG_ID_NBR=<YOUR_ORG_ID_NBR>
 ADMINISTRATOR_UPN_FQN=admin@$ORG_ID 
-PROJECT_ID=<YOUR_PROJECT_ID>
+PROJECT_ID=$(gcloud config list --format 'value(core.project)')
 PROJECT_NBR=<YOUR_PROJECT_ID_NBR>
 
 #Your public IP address, to add to the firewall
@@ -130,7 +130,15 @@ gcloud dataproc jobs submit spark \
 2. Navigate to the GCS bucket for output and view the files created there. <br>
 You can also review the files via gcloud command-
 ```
-gsutil ls ${DATA_BUCKET_FQN}/output/wordcount 
+gsutil cat `gsutil ls ${DATA_BUCKET_FQN}/output/wordcount | grep part* | head -1` | head -5
+```
+The result should look something like this-
+```
+-87.6929601255439,2
+-87.69044566500749,2
+"41.84205857647401,",2
+"41.84030987335775,",2
+-87.67775411246915,2
 ```
 
 
