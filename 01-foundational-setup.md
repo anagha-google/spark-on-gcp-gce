@@ -13,10 +13,10 @@ This module covers the foundational setup required Apache Spark powered by Cloud
 
 ## Lab Modules
 
-| Topic | Resource | 
+| Module | Resource | 
 | -- | :--- |
 | 1 | [Foundational Setup](01-foundational-setup.md) |
-| 2 | [Create a Dataproc Spark Cluster](02-gce-create-spark-cluster.md) |
+| 2 | [Create a Spark Cluster](02-gce-create-spark-cluster.md) |
 | 3 | [Submit Spark batch jobs](03-run-spark-batch-jobs.md) |
 | 4 | [Work with Jupyter notebooks](04-run-spark-notebooks.md) |
 | 10 | [Clean up](10-clean-up.md) |
