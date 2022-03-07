@@ -313,11 +313,6 @@ gcloud compute networks create $VPC_NM \
 
 <br><br>
 
-
-
-<hr>
-
-
 ## 4.b. Create subnet & firewall rules for Dataproc - GCE
 
 Dataproc serverless Spark needs intra subnet open ingress. <br>
