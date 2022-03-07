@@ -430,6 +430,10 @@ gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $SPARK_GCE_TEMP_BUCKET_F
 
 <br><br>
 
+![gcs-1](images/01-01-storage.png)   
+  
+<br><br>
+
 <hr>
 
 ## 6.0. Create common Persistent Spark History Server
@@ -452,6 +456,20 @@ gcloud dataproc clusters create $PERSISTENT_HISTORY_SERVER_NM \
 --subnet=projects/$PROJECT_ID/regions/$LOCATION/subnetworks/$SPARK_CATCH_ALL_SUBNET_NM
 ```
 <br><br>
+
+![pshs-1](images/01-pshs-16.png)   
+  
+<br><br>
+
+![pshs-2](images/01-pshs-17.png)   
+  
+<br><br>
+
+
+![pshs-3](images/01-pshs-18.png)   
+  
+<br><br>
+
 
 <hr>
 
