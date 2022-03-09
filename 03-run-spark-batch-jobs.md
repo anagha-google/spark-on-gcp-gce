@@ -123,7 +123,7 @@ gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $DATA_BUCKET_FQN
 gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $JAR_BUCKET_FQN
 ```
 
-## 3.2. Copy the source data and jar to the buckets created
+## 3.2. Copy source data and jar for the lab, to the buckets created
 
 ### 3.2.a. Clone this git repo via gcloud in Cloud Shell
 
