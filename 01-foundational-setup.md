@@ -327,7 +327,7 @@ gcloud compute networks create $VPC_NM \
 Dataproc serverless Spark needs intra subnet open ingress. <br>
 Paste these and run in cloud shell-
 ```
-SPARK_GCE_SUBNET_CIDR=	10.0.0.0/16
+SPARK_GCE_SUBNET_CIDR=10.0.0.0/16
 
 gcloud compute networks subnets create $SPARK_GCE_SUBNET_NM \
  --network $VPC_NM \
