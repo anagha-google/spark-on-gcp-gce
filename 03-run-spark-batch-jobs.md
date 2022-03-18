@@ -1,6 +1,21 @@
 # About
 
-This module shows how to submit jobs to a Cloud Dataproc cluster.
+This module shows how to submit Apache Sparks jobs to a pre-created Cloud Dataproc cluster.
+
+
+## Lab Modules
+
+| Module | Resource | 
+| -- | :--- |
+| 1 | [Foundational Setup](01-foundational-setup.md) |
+| 2 | [Create a Spark Cluster](02-gce-create-spark-cluster.md) |
+| 3 | [Submit Spark batch jobs](03-run-spark-batch-jobs.md) |
+| 4 | [Spark notebooks](04-run-spark-notebooks.md) |
+| 10 | [Clean up](10-clean-up.md) |
+
+<br>
+
+<hr>
 
 ## Documentation resources
 
@@ -16,19 +31,6 @@ This module shows how to submit jobs to a Cloud Dataproc cluster.
 
 <hr>
 
-## Lab Modules
-
-| Module | Resource | 
-| -- | :--- |
-| 1 | [Foundational Setup](01-foundational-setup.md) |
-| 2 | [Create a Spark Cluster](02-gce-create-spark-cluster.md) |
-| 3 | [Submit Spark batch jobs](03-run-spark-batch-jobs.md) |
-| 4 | [Work with Jupyter notebooks](04-run-spark-notebooks.md) |
-| 10 | [Clean up](10-clean-up.md) |
-
-<br>
-
-<hr>
 
 ## 1. Variables
 
@@ -121,7 +123,7 @@ gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $DATA_BUCKET_FQN
 gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $JAR_BUCKET_FQN
 ```
 
-## 3.2. Copy the source data and jar to the buckets created
+## 3.2. Copy source data and jar for the lab, to the buckets created
 
 ### 3.2.a. Clone this git repo via gcloud in Cloud Shell
 

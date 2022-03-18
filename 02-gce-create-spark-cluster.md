@@ -1,15 +1,7 @@
 # About
 
-This module covers fundamentals of running Spark on Dataproc-GCE through a practical and basic set of examples to get you quick-started. 
+This module covers creation of a Cloud Dataproc cluster, with a pre-created Dataproc Metastore Service, BigQuery Apache Spark connector, and with the optional component of Jupyter. 
 
-## Documentation resources
-
-| Topic | Resource | 
-| -- | :--- |
-| 1 | [Cloud Dataproc landing page](https://cloud.google.com/dataproc/docs) |
-| 2 | [Dataproc Metastore Service](https://cloud.google.com/dataproc-metastore/docs) |
-| 3 | [Dataproc Persistent Spark History Server](https://cloud.google.com/dataproc/docs/concepts/jobs/history-server) |
-| 4 | [Apache Spark](https://spark.apache.org/docs/latest/) |
 
 ## Lab Modules
 
@@ -18,8 +10,19 @@ This module covers fundamentals of running Spark on Dataproc-GCE through a pract
 | 1 | [Foundational Setup](01-foundational-setup.md) |
 | 2 | [Create a Spark Cluster](02-gce-create-spark-cluster.md) |
 | 3 | [Submit Spark batch jobs](03-run-spark-batch-jobs.md) |
-| 4 | [Work with Jupyter notebooks](04-run-spark-notebooks.md) |
+| 4 | [Spark notebooks](04-run-spark-notebooks.md) |
 | 10 | [Clean up](10-clean-up.md) |
+
+## Documentation resources
+
+| Topic | Resource | 
+| -- | :--- |
+| 1 | [Cloud Dataproc landing page](https://cloud.google.com/dataproc/docs) |
+| 2 | [Dataproc Metastore Service](https://cloud.google.com/dataproc-metastore/docs) |
+| 3 | [Dataproc Persistent Spark History Server](https://cloud.google.com/dataproc/docs/concepts/jobs/history-server) |
+| 4 | [Apache Spark BigQuery connector repository](https://github.com/GoogleCloudDataproc/spark-bigquery-connector) |
+| 5 | [Apache Spark](https://spark.apache.org/docs/latest/) |
+
 
 ## 1. Pre-requisites
 
@@ -43,7 +46,6 @@ PROJECT_NBR=<YOUR_PROJECT_ID_NBR>
 
 #Your public IP address, to add to the firewall
 YOUR_CIDR=<YOUR_IP_ADDRESS>/32
-
 
 #General variables
 LOCATION=us-central1
@@ -75,6 +77,11 @@ SPARK_CATCH_ALL_SUBNET_NM=$BASE_PREFIX-misc-snet
 ```
   
 ## 3. Create a Dataproc GCE cluster
+
+Edit the version of the BigQuery connector to reflect the latest version in this Gig repos "latest" version-
+https://github.com/GoogleCloudDataproc/spark-bigquery-connector
+
+
 ```
 gcloud dataproc clusters create $SPARK_GCE_NM \
    --service-account=$UMSA_FQN \
@@ -93,7 +100,9 @@ gcloud dataproc clusters create $SPARK_GCE_NM \
    --worker-boot-disk-size 500 \
    --image-version 2.0-debian10 \
    --tags $SPARK_GCE_NM \
-   --optional-components JUPYTER 
+   --optional-components JUPYTER \
+   --initialization-actions gs://goog-dataproc-initialization-actions-${LOCATION}/connectors/connectors.sh \
+   --metadata spark-bigquery-connector-version=0.23.2
 ```
 
 You should output as follows-

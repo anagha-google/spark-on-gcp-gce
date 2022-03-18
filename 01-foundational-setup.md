@@ -2,14 +2,6 @@
 
 This module covers the foundational setup required Apache Spark powered by Cloud Dataproc on GCE.
 
-## General Documentation Resources
-
-| Topic | Resource | 
-| -- | :--- |
-| 1 | [Cloud Dataproc landing page](https://cloud.google.com/dataproc/docs) |
-| 2 | [Dataproc Metastore Service](https://cloud.google.com/dataproc-metastore/docs) |
-| 3 | [Dataproc Persistent Spark History Server](https://cloud.google.com/dataproc/docs/concepts/jobs/history-server) |
-| 4 | [Apache Spark](https://spark.apache.org/docs/latest/) |
 
 ## Lab Modules
 
@@ -20,6 +12,17 @@ This module covers the foundational setup required Apache Spark powered by Cloud
 | 3 | [Submit Spark batch jobs](03-run-spark-batch-jobs.md) |
 | 4 | [Work with Jupyter notebooks](04-run-spark-notebooks.md) |
 | 10 | [Clean up](10-clean-up.md) |
+
+
+## General Documentation Resources
+
+| Topic | Resource | 
+| -- | :--- |
+| 1 | [Cloud Dataproc landing page](https://cloud.google.com/dataproc/docs) |
+| 2 | [Dataproc Metastore Service](https://cloud.google.com/dataproc-metastore/docs) |
+| 3 | [Dataproc Persistent Spark History Server](https://cloud.google.com/dataproc/docs/concepts/jobs/history-server) |
+| 4 | [Apache Spark](https://spark.apache.org/docs/latest/) |
+
 
 ## 1.0. Variables
 
@@ -293,8 +296,14 @@ gcloud projects add-iam-policy-binding $PROJECT_ID --member=user:$ADMINISTRATOR_
   
 <br><br>
 
-<hr>
+### 3.d. Grant permissions to the Dataproc Service Agent to interact with the Dataproc Metastore
+Paste these and run in cloud shell-
+```
+gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$UMSA_FQN \
+--role="roles/metastore.editor"
+```
 
+<hr>
 
 ## 4.0. Create VPC, Subnets and Firewall Rules
 
@@ -318,7 +327,7 @@ gcloud compute networks create $VPC_NM \
 Dataproc serverless Spark needs intra subnet open ingress. <br>
 Paste these and run in cloud shell-
 ```
-SPARK_GCE_SUBNET_CIDR=	10.0.0.0/16
+SPARK_GCE_SUBNET_CIDR=10.0.0.0/16
 
 gcloud compute networks subnets create $SPARK_GCE_SUBNET_NM \
  --network $VPC_NM \
@@ -430,6 +439,10 @@ gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $SPARK_GCE_TEMP_BUCKET_F
 
 <br><br>
 
+![gcs-1](images/01-01-storage.png)   
+  
+<br><br>
+
 <hr>
 
 ## 6.0. Create common Persistent Spark History Server
@@ -453,6 +466,24 @@ gcloud dataproc clusters create $PERSISTENT_HISTORY_SERVER_NM \
 ```
 <br><br>
 
+![pshs-0](images/01-pshs-15.png)   
+  
+<br><br>
+
+![pshs-1](images/01-pshs-16.png)   
+  
+<br><br>
+
+![pshs-2](images/01-pshs-17.png)   
+  
+<br><br>
+
+
+![pshs-3](images/01-pshs-18.png)   
+  
+<br><br>
+
+
 <hr>
 
 
@@ -472,6 +503,26 @@ gcloud metastore services create $DATAPROC_METASTORE_SERVICE_NM \
     --hive-metastore-version=3.1.2 \
     --impersonate-service-account=$UMSA_FQN 
 ```
+<br><br>
+
+![dpms-1](images/01-dpms-09.png)   
+  
+<br><br>
+
+![dpms-2](images/01-dpms-10.png)   
+  
+<br><br>
+
+![dpms-3](images/01-dpms-11.png)   
+  
+<br><br>
+
+![dpms-4](images/01-dpms-12.png)   
+  
+<br><br>
+
+![dpms-5](images/01-dpms-14.png)   
+  
 <br><br>
 
 <hr>
