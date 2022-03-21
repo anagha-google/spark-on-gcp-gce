@@ -23,6 +23,20 @@ This module covers the foundational setup required Apache Spark powered by Cloud
 | 3 | [Dataproc Persistent Spark History Server](https://cloud.google.com/dataproc/docs/concepts/jobs/history-server) |
 | 4 | [Apache Spark](https://spark.apache.org/docs/latest/) |
 
+## 0. Prerequisites 
+
+#### 1. Create a project".<br>
+Note the project number and project ID. <br>
+We will need this for the rest fo the lab.<br>
+The project name will be the BASE_PREFIX used in the Variables section below.
+#### 2. Grant yourself security admin role<br>
+This is needed for the networking setup.<br>
+Go to Cloud IAM and through the UI, grant yourself security admin role.
+#### 3. Grant yourself Organization Policy Administrator at an Organization level<br>
+This is needed to set project level policies<br>
+In the UI, set context to organization level (instead of project)<br>
+Go to Cloud IAM and through the UI, grant yourself Organization Policy Administrator at an Organization level.<br>
+Don't forget to set the project back to the project you created in Step 1 above in the UI.
 
 ## 1.0. Variables
 
