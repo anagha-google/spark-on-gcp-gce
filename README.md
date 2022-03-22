@@ -32,5 +32,5 @@ This is a community effort by Google Cloud Data Analytics Specialist Engineers. 
 
 | # | Contributor | Contribution | Team |
 | -- | :---    | :---| :---| 
-| 1 | Anagha Khanolkar | Author | North America Technology Team |
-| 2 | Jay O' Leary | Testing | Sub-regional Technology Team |
+| 1 | Anagha Khanolkar | Primary Author | North America Technology Team |
+| 2 | Jay O' Leary | Author | Sub-regional Technology Team |
