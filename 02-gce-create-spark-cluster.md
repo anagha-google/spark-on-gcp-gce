@@ -103,7 +103,7 @@ gcloud dataproc clusters create $SPARK_GCE_NM \
    --optional-components JUPYTER \
    --initialization-actions gs://goog-dataproc-initialization-actions-${LOCATION}/connectors/connectors.sh \
    --metadata spark-bigquery-connector-version=0.23.2 \
-   --properties dataproc:dataproc.logging.stackdriver.enable=true,dataproc:dataproc.monitoring.stackdriver.enable=true,dataproc:yarn.log-aggregation.enabled=true,dataproc:dataproc.logging.stackdriver.job.yarn.container.enable=true,dataproc:jobs.file-backed-output.enable=true,dataproc:dataproc.logging.stackdriver.job.driver.enable=true
+   --properties dataproc:dataproc.logging.stackdriver.enable=true,dataproc:dataproc.monitoring.stackdriver.enable=true,yarn:yarn.log-aggregation.enabled=true,dataproc:dataproc.logging.stackdriver.job.yarn.container.enable=true,dataproc:jobs.file-backed-output.enable=true,dataproc:dataproc.logging.stackdriver.job.driver.enable=true
 ```
 
 You should output as follows-
