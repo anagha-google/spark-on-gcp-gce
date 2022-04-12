@@ -73,7 +73,7 @@ CLASS_NAME=ReadGCSFileAndWordCount
 This job merely calculates the value of Pi and emits the result to the screen and is great for a basic environment setup set.
 
 ```
-gcloud dataproc jobs submit spark \
+gcloud dataproc jobs submit spark --id "Sparkpi-1" \
 --cluster=${SPARK_GCE_NM} \
 --region=$LOCATION \
 --jars=file:///usr/lib/spark/examples/jars/spark-examples.jar \
